@@ -10,7 +10,17 @@ class StringCalculator
       custom_delimiter, numbers = numbers.split("\n", 2)
       delimiters << custom_delimiter[2..-1]
     end
+    
+    negative_numbers = []
 
-    numbers.split(Regexp.union(delimiters)).sum(&:to_i) 
+    sum = numbers.split(Regexp.union(delimiters)).sum do |number| 
+      num = number.to_i
+      negative_numbers << number if num.negative?
+      num
+    end
+
+    raise "negative numbers not allowed #{negative_numbers.join(',')}" if negative_numbers.any?
+    
+    sum
   end  
 end

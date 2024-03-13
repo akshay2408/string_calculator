@@ -35,4 +35,9 @@ class TestStringCalculator < Test::Unit::TestCase
   def test_custom_delimiter
     assert_equal(3, @calculator.add("//;\n1;2"))
   end
+
+  def test_negative_numbers
+    exception = assert_raise(RuntimeError) { @calculator.add("-1,2,-3") }
+    assert_equal("negative numbers not allowed -1,-3", exception.message)
+  end  
 end  
