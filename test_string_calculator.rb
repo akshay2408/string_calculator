@@ -9,4 +9,8 @@ class TestStringCalculator < Test::Unit::TestCase
   def test_empty_params
     assert_equal(0, @calculator.add(nil))
   end
+
+  def test_non_string_params
+    assert_equal(0, @calculator.add(1))
+  end  
 end  
