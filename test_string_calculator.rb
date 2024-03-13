@@ -29,5 +29,10 @@ class TestStringCalculator < Test::Unit::TestCase
   def test_newline_delimiter
     assert_equal(6, @calculator.add("1\n2,3"))
     assert_equal(0, @calculator.add("1,\n"))
-  end  
+    assert_equal(0, @calculator.add("1\n,"))
+  end
+
+  def test_custom_delimiter
+    assert_equal(3, @calculator.add("//;\n1;2"))
+  end
 end  
