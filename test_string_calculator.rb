@@ -16,5 +16,9 @@ class TestStringCalculator < Test::Unit::TestCase
 
   def test_empty_string
     assert_equal(0, @calculator.add(''))
-  end      
+  end
+
+  def test_single_number_string
+    assert_equal(1, @calculator.add("1"))
+  end        
 end  
